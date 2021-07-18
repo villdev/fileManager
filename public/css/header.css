@@ -1,0 +1,163 @@
+header {
+  background-color: black;
+  height: 8vh;
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0px;
+}
+
+.header__left {
+  /* float: left; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 18vw; */
+  margin-left: 60px;
+}
+
+.logo {
+  text-decoration: none;
+  color: white;
+  /* margin: 0 auto; */
+  display: flex;
+  align-items: center;
+}
+.logo-name {
+  padding: 16px;
+  font-size: 32px;
+  font-weight: 800;
+  /* font-weight: 600; */
+}
+
+.header__right {
+  /* float: right; */
+  display: flex;
+  /* width: 19vw; */
+  justify-content: center;
+  align-items: center;
+  margin-right: 36px;
+}
+
+.search {
+  /*search area*/
+  /* max-width: 300px; */
+  /* width: clamp(150px, 225px, 300px); */
+}
+.searchbar {
+  /* width: 300px; */
+  width: clamp(150px, 225px, 300px);
+  height: 28px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background-color: white;
+  background-image: url("../icons/search-24.svg");
+  background-position: 6px 1px;
+  background-repeat: no-repeat;
+  padding: 8px 32px;
+  margin-right: 8px;
+}
+.searchbar:focus {
+  /* border: 1px  solid; */
+  background-color: whitesmoke;
+}
+
+.notification {
+  margin: 8px 32px;
+  width: 30px;
+  height: 30px;
+}
+.notif-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.account {
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  /* margin: 8px 8px; */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.account:hover {
+  background-color: rgb(0, 183, 255);
+}
+.account-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.searchResults {
+  
+}
+
+.account-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.account-popup {
+  border: 1px solid rgb(209, 209, 209);
+  background-color: white;
+  width: 320px;
+  border-radius: 8px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: absolute;
+  right: 8px;
+  top: 7vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+}
+.account-avatar {
+  width: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(209, 209, 209, 0.4);
+}
+.account-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+.account-email {
+  font-size: 14px;
+  color: rgba(83, 83, 83, 0.8);
+}
+.horizontal-line {
+  width: inherit;
+  height: 1px;
+  background-color: rgb(209, 209, 209);
+  margin: 24px 0 24px 0;
+}
+.account-popup-options a {
+  color: rgba(0, 0, 0, 0.65);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(209, 209, 209);
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: 300;
+  width: 256px;
+  height: 40px;
+  margin-top: 12px;
+}
+.account-popup-options a:hover {
+  background-color: rgb(235, 233, 233);
+}

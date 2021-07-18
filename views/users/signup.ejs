@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/signup.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./icons/favicon.svg" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="msgs">
+        <% if(typeof errors != 'undefined'){ %> <%
+        errors.forEach(function(error) { %>
+        <div class="msg error"><%= error.msg %></div>
+        <% }); %> <% } %> <% if(typeof msg != 'undefined'){ %>
+        <div class="msg success"><%= msg %></div>
+        <% } %>
+      </div>
+      <div class="main-content">
+        <div class="main-content__right">
+          <div class="logo">
+            <img src="./icons/favicon.svg" alt="" class="logo-icon" />
+            FileManager
+          </div>
+        </div>
+        <div class="main-content__left">
+          <div class="signup">
+            <div class="signup-title">Sign Up</div>
+            <form action="/signup" method="POST" class="signup-form">
+              <!-- post to a /signup route -->
+              <input
+                type="text"
+                name="first"
+                id="first-name"
+                placeholder="First Name"
+                class="first-name-input"
+              />
+              <input
+                type="text"
+                name="last"
+                id="last-name"
+                placeholder="Last Name"
+                class="last-name-input"
+              />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                class="email-input"
+              />
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                class="password-input"
+              />
+              <button type="submit" class="signup-btn">Create Account</button>
+            </form>
+          </div>
+          <div class="line-break"></div>
+          <div class="signin">
+            <a href="/" class="signin-btn">
+              <img
+                src="./icons/left swipe icon.png"
+                alt=""
+                class="signin-btn-icon"
+              />Sign In</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

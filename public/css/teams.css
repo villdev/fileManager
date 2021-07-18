@@ -1,0 +1,578 @@
+.triangle {
+  /* top: 24.25vh; */
+  top: 19.25vh;
+}
+/*------------------------------------*/
+.main-content {
+  height: 92vh;
+  background: rgb(253, 253, 253);
+  background: linear-gradient(
+    180deg,
+    rgba(253, 253, 253, 1) 0%,
+    rgba(209, 204, 204, 1) 100%
+  );
+  display: flex;
+}
+
+/*-------------MENU------------------------*/
+
+/*---------teams-(same-as-folder)------------*/
+.path {
+  margin-left: 0;
+}
+.tooltip::before {
+  margin-top: 25px;
+}
+
+.team {
+  width: 72px;
+  height: 88px;
+  text-align: center;
+  position: relative;
+  margin: 16px;
+  /* overflow: hidden; */
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.team-icon {
+  width: 56px;
+  /* filter: invert(70%) sepia(48%) saturate(3445%) hue-rotate(147deg)
+    brightness(104%) contrast(86%); */
+}
+
+.team-name {
+  width: 72px;
+  height: 28px;
+  font-size: 12px;
+  font-weight: 700;
+  overflow: hidden;
+}
+
+.more-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* #select-custom-files {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.team:hover #select-custom-files {
+  display: block;
+} */
+
+/*------------------teams-preview------------------------*/
+.preview-pane {
+  width: 19vw;
+  height: 92vh;
+  /* background-color: rgb(48, 48, 48); todo change color */
+  /* background-color: #121212; */
+  border-top: 1px solid rgba(253, 253, 253, 0.35);
+  /* border-left: 1px solid rgba(253, 253, 253, 0.35); */
+  background: #1a1e1e;
+}
+
+.preview-main {
+  height: 15%;
+  width: inherit;
+  border-bottom: 1px solid rgba(253, 253, 253, 0.35);
+  color: white;
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+}
+.preview-team-name {
+  font-size: 24px;
+}
+.preview-team-created-date {
+  padding: 4% 0;
+}
+
+/*-----------------preview-members-info-------------------*/
+.preview-members-area {
+  height: 58%;
+  width: inherit;
+  border-bottom: 1px solid rgba(253, 253, 253, 0.35);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10%;
+}
+
+.preview-members-title {
+  font-size: 24px;
+  border-bottom: 1px solid rgba(253, 253, 253, 0.1);
+}
+
+/*---------------preview-pane----------tags----------*/
+
+.add-directory {
+  position: relative;
+}
+
+.add-directory-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.add-directory-options {
+  position: absolute;
+  /* bottom: 4vh; */
+  bottom: 9vh;
+  right: 3vh;
+  background-color: white;
+  width: 300px;
+  border-radius: 4px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border-top: 1px solid rgba(121, 121, 121, 0.4);
+  border-bottom: 1px solid rgba(121, 121, 121, 0.4);
+  /* padding: 0 40px; */
+}
+.add-options {
+  color: black;
+  /* display: block; */
+  /* text-align: center; */
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.add-options img {
+  margin-right: 12px;
+}
+.add-options:hover {
+  background-color: rgb(236, 235, 235);
+}
+
+.add-directory-folder-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.add-directory-new-folder {
+  width: 409px;
+  /* height: 120px; */
+  background-color: white;
+  border-radius: 8px;
+  padding: 22px 0 24px 0;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.new-folder-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+.new-folder-header-title {
+  font-size: 22px;
+  font-weight: 600;
+}
+.new-folder-header-close {
+  margin-left: auto;
+  font-size: 32px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  filter: invert(0.5);
+}
+.new-folder-header-close:hover {
+  /* background-color: rgb(230, 230, 230); */
+  filter: invert(0);
+}
+.new-folder-name {
+  width: 362px;
+  margin-bottom: 24px;
+  margin-left: 24px;
+  margin-right: 24px;
+  font-size: 16px;
+  padding: 8px;
+}
+.new-folder-btns {
+  /* margin-bottom: 18px; */
+  margin-left: 24px;
+  margin-right: 24px;
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 12px;
+}
+
+.new-folder-cancel {
+  order: 2;
+  background-color: transparent;
+}
+.new-folder-submit {
+  order: 1;
+  color: white;
+  background-color: #4285f4;
+}
+.new-folder-submit:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.new-folder-cancel:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.new-folder-btns button,
+.new-folder-btns div {
+  padding: 12px;
+  margin-left: 16px;
+  width: 100px;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+}
+
+/* active team selection plus right click popup */
+.active {
+  background-color: #e6e3e3;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 225, 255, 0.397);
+  color: rgb(6, 6, 216);
+}
+.team:hover {
+  color: rgb(6, 6, 216);
+}
+
+.item-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.item-popup {
+  border: 1px solid rgb(209, 209, 209);
+  background-color: white;
+  width: 204px;
+  border-radius: 8px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: absolute;
+  z-index: 2;
+  top: 44px;
+  left: 36px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 16px;
+}
+
+.item-action-btn {
+  width: 180px;
+  height: 32px;
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+.item-action-btn img {
+  margin-right: 8px;
+  margin-left: 8px;
+  float: left;
+}
+.item-action-btn:hover {
+  background-color: rgba(223, 223, 223, 0.767);
+}
+
+.update-directory-folder-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #000000;
+}
+.update-directory-folder {
+  width: 409px;
+  /* height: 120px; */
+  background-color: white;
+  border-radius: 8px;
+  padding: 22px 0 24px 0;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.right-click-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.right-click-options {
+  position: absolute;
+  /* bottom: 4vh; */
+  /* bottom: 9vh; */
+  /* right: 3vh; */
+  background-color: white;
+  width: 180px;
+  border-radius: 4px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border-top: 1px solid rgba(121, 121, 121, 0.4);
+  border-bottom: 1px solid rgba(121, 121, 121, 0.4);
+  /* padding: 0 20px; */
+}
+
+.right-click-add-options {
+  color: black;
+  /* display: block; */
+  /* text-align: center; */
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 8px 32px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+.right-click-add-options img {
+  margin-right: 12px;
+  /* height: 24px; */
+}
+.right-click-add-options:hover {
+  background-color: rgb(236, 235, 235);
+}
+
+.team-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.edit-team {
+  /* background-color: white; */
+  /* background-color: #f0f4fd; */
+  background-color: #ebeff7;
+  border-radius: 12px;
+  /* padding: 22px 0 24px 0; */
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 546px;
+  max-height: 546px;
+
+  /* overflow: hidden; */
+}
+
+.edit-team-header {
+  display: flex;
+  align-items: center;
+  /* margin-bottom: 24px; */
+  /* margin-left: 24px; */
+  /* margin-right: 24px; */
+  padding-top: 22px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-bottom: 16px;
+  background-color: #6f6cd1;
+  border-radius: 12px 12px 0 0;
+}
+
+.edit-team-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+}
+.edit-team-close {
+  margin-left: auto;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  /* filter: invert(0.5); */
+  transform: translateY(-4px);
+  color: #ffffff;
+}
+.edit-team-close:hover {
+  /* background-color: #5a55ca; */
+  color: #000000;
+}
+.edit-team-search {
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+  /* margin-bottom: 24px; */
+  margin-left: 24px;
+  margin-right: 24px;
+  /* transform: translateX(-8px); */
+}
+.edit-team-search-input {
+  /* width: 440px; */
+  /* margin-right: 8px; */
+  height: 54px;
+  font-size: 16px;
+  /* border: 2px solid rgba(0, 0, 0, 0.61); */
+  border: 1px solid rgba(226, 226, 226, 0.61);
+  /* border: none; */
+  border-radius: 12px;
+  padding: 12px;
+  color: #56585c;
+  flex-grow: 2;
+  /* flex-basis: ; */
+}
+.edit-team-search-input::placeholder {
+  color: #71757c;
+  font-size: 16px;
+  font-weight: 500;
+}
+.edit-team-search-btn {
+  /* background-color: black; */
+  /* background-color: #f0f4fd; */
+  background-color: #ebeff7;
+  /* border: 2px solid black; */
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 550;
+  width: 34px;
+  height: 34px;
+  margin-left: -46px;
+  margin-right: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.edit-team-search-btn img {
+  filter: invert(0.5);
+}
+.edit-team-search-btn:hover {
+  /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
+  /* background-color: #d0dffa; */
+  background-color: #6f6cd1;
+}
+.edit-team-search-btn:hover img {
+  filter: invert(1);
+}
+.edit-team-members {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* margin-bottom: 24px; */
+  margin-left: 24px;
+  margin-right: 24px;
+  max-height: 364px;
+  /* overscroll-behavior: none; */
+  /* height: 364px; */
+  overflow: auto;
+  /* height: auto; */
+  margin-bottom: 24px;
+}
+.edit-team-user {
+  display: flex;
+  align-items: center;
+  /* width: 440px; */
+  height: 72px;
+  border-radius: 12px;
+  padding: 16px 12px;
+  /* margin-bottom: 24px; */
+  margin-top: 24px;
+  background-color: #ffffff;
+  flex-grow: 2;
+  /* overflow: auto; */
+}
+.edit-team-user-icon {
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid black;
+  margin-right: 12px;
+}
+.edit-team-user-name {
+  font-size: 18px;
+  font-weight: 500;
+  margin-right: 12px;
+  flex-grow: 2;
+}
+.edit-team-manager-btn {
+  background-color: #d3d9e6;
+  border: none;
+  border-radius: 8px;
+  width: 80px;
+  height: 40px;
+  font-size: 12px;
+  margin-left: 12px;
+}
+.edit-team-manager-btn:hover {
+  background-color: #5a55ca;
+  color: #ffffff;
+}
+.edit-team-member-remove-btn {
+  background-color: #d3d9e6;
+  border: none;
+  border-radius: 8px;
+  width: 80px;
+  height: 40px;
+  font-size: 12px;
+  margin-left: 12px;
+}
+.edit-team-member-remove-btn:hover {
+  background-color: #f61f1f;
+  color: white;
+}
+.edit-team-member-add-btn {
+  background-color: #d3d9e6;
+  border: none;
+  border-radius: 8px;
+  width: 80px;
+  height: 40px;
+  font-size: 12px;
+  margin-left: 12px;
+}
+.edit-team-member-add-btn:hover {
+  background-color: #05da73;
+  color: white;
+}
+
+.admin-manager-team {
+  font-size: 12px;
+  font-weight: 500;
+}

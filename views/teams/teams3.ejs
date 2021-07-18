@@ -1,0 +1,154 @@
+<div class="file-directory">
+  <% teams.forEach(team => { %>
+  <div
+    class="team"
+    data-title="<%=team.teamname%>"
+    data-manager="<%=team.managerName%>"
+    data-count="<%=team.count%>"
+    data-created="<%=team.createdAt%>"
+    data-modified="<%=team.updatedAt%>"
+    data-id="<%=team._id%>"
+  >
+    <img src="./icons/group-24px.svg" alt="" class="team-icon" />
+    <div class="team-name"><%=team.teamname%></div>
+
+    <div class="item-modal"></div>
+    <div class="item-popup">
+      <!-- <a href="#" class="item-action-btn"
+            ><img src="./icons/add_member.svg" />Add Members</a
+            >
+            <a href="#" class="item-action-btn"
+            ><img src="./icons/remove_member.svg" />Remove Members</a
+            > -->
+      <!-- <a href="#" class="item-action-btn"
+            ><img src="./icons/info.svg" />Details</a
+            > -->
+      <a href="#" class="item-action-btn edit-members-btn"
+        ><img src="./icons/edit_members24.svg" />Edit Members</a
+      >
+      <a href="#" class="item-action-btn rename-folder-btn"
+        ><img src="../icons/rename.svg" />Rename</a
+      >
+      <a href="teams/delete/<%=team._id%> " class="item-action-btn"
+        ><img src="./icons/delete.svg" />Delete Team</a
+      >
+    </div>
+  </div>
+  <!-- update/ rename folder name modal -->
+  <div class="update-directory-folder-modal">
+    <div class="update-directory-folder">
+      <div class="new-folder-header">
+        <div class="new-folder-header-title">Rename Folder</div>
+        <div class="new-folder-header-close folder-modal-close">&times;</div>
+      </div>
+      <form action="/teams/update/<%=team._id%>" method="post">
+        <input
+          type="text"
+          name="name"
+          class="new-folder-name"
+          value="<%= team.teamname %> "
+          autofocus="autofocus"
+          onfocus="this.select()"
+        />
+        <div class="new-folder-btns">
+          <div class="new-folder-cancel folder-modal-close">CANCEL</div>
+          <button type="submit" class="new-folder-submit">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- end and start of team modals -->
+  <div class="team-modal">
+    <div class="edit-team" data-teamid="<%=team._id%> ">
+      <div class="edit-team-header">
+        <div class="edit-team-title">Edit <%=team.teamname%> Members</div>
+        <div class="edit-team-close team-modal-close">&times;</div>
+      </div>
+      <div class="edit-team-search">
+        <input
+          class="edit-team-search-input"
+          type="search"
+          name="userName"
+          id=""
+          placeholder="Search..."
+        />
+        <button class="edit-team-search-btn">
+          <img src="../icons/search-24.svg" alt="" />
+        </button>
+      </div>
+      <div class="edit-team-members">
+        <% let removeUsers = []; %> <% let addUsers = []; %> <% let adminUser =
+        []; %> <% let managerUser = []; %> <% users.forEach(user => { %> <%
+        if(user.role.indexOf("admin") !== -1) { %> <% adminManager.push(user);
+        %> <% } %> <% if(user.role.indexOf(team.teamname) !== -1) { %> <%
+        removeUsers.push(user); %> <% } %> <% else { %> <% addUsers.push(user);
+        %> <% } %> <% if(user._id == team.manager) { %> <%
+        managerUser.push(user); %> <% let pos = removeUsers.indexOf("user"); %>
+        <% removeUsers.splice(pos,1); %> <% } %> <% }); %>
+        <div class="edit-team-member-remove">
+          <% if(adminUser.length !== 0) { %>
+          <div class="edit-team-user" data-userid="<%=adminUser[0]._id%>">
+            <img
+              src="../icons/person-24px.svg"
+              alt=""
+              class="edit-team-user-icon"
+            />
+            <div class="edit-team-user-name">
+              <%=adminUser[0].fullname%>
+              <div class="admin-manager-team">admin</div>
+            </div>
+          </div>
+          <% } %> <% if(managerUser.length !== 0) { %>
+          <div class="edit-team-user" data-userid="<%=managerUser[0]._id%>">
+            <img
+              src="../icons/person-24px.svg"
+              alt=""
+              class="edit-team-user-icon"
+            />
+            <div class="edit-team-user-name">
+              <%=managerUser[0].fullname%>
+              <div class="admin-manager-team">manager</div>
+            </div>
+          </div>
+          <% } %> <% removeUsers.forEach(user => { %>
+          <div class="edit-team-user" data-userid="<%=user._id%> ">
+            <img
+              src="../icons/person-24px.svg"
+              alt=""
+              class="edit-team-user-icon"
+            />
+            <div class="edit-team-user-name"><%=user.fullname%></div>
+            <button class="edit-team-manager-btn">Manager</button>
+            <button class="edit-team-member-remove-btn">Remove</button>
+          </div>
+          <% }); %>
+        </div>
+        <div class="edit-team-member-add">
+          <% addUsers.forEach(user => { %>
+          <div class="edit-team-user" data-userid="<%=user._id%> ">
+            <img
+              src="../icons/person-24px.svg"
+              alt=""
+              class="edit-team-user-icon"
+            />
+            <div class="edit-team-user-name"><%=user.fullname%></div>
+            <button class="edit-team-member-add-btn">Add</button>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+  <div class="right-click-modal">
+    <div class="right-click-options">
+      <a href="/teams" class="right-click-add-options"
+        ><img src="../icons/refresh24.svg" alt="" class="refresh-icon" />
+        Refresh
+      </a>
+      <a href="#" class="right-click-add-options new-folder-btn2"
+        ><img src="../icons/new_folder24.svg" alt="" /> New Team</a
+      >
+    </div>
+  </div>
+</div>

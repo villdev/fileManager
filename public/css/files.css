@@ -1,0 +1,221 @@
+.main-content {
+  height: 92vh;
+  background: rgb(253, 253, 253);
+  background: linear-gradient(
+    180deg,
+    rgba(253, 253, 253, 1) 0%,
+    rgba(209, 204, 204, 1) 100%
+  );
+  display: flex;
+}
+
+/*-------------MENU------------------------*/
+.triangle {
+  top: 14.25vh;
+}
+
+.add-directory {
+  position: relative;
+}
+
+.add-directory-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.add-directory-options {
+  position: absolute;
+  /* bottom: 4vh; */
+  bottom: 9vh;
+  right: 3vh;
+  background-color: white;
+  width: 300px;
+  border-radius: 4px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border-top: 1px solid rgba(121, 121, 121, 0.4);
+  border-bottom: 1px solid rgba(121, 121, 121, 0.4);
+  /* padding: 0 40px; */
+}
+.add-options {
+  color: black;
+  /* display: block; */
+  /* text-align: center; */
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.add-options img {
+  margin-right: 12px;
+}
+.add-options:hover {
+  background-color: rgb(236, 235, 235);
+}
+
+.add-directory-folder-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.add-directory-new-folder {
+  width: 409px;
+  /* height: 120px; */
+  background-color: white;
+  border-radius: 8px;
+  padding: 22px 0 24px 0;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.new-folder-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+.new-folder-header-title {
+  font-size: 22px;
+  font-weight: 600;
+}
+.new-folder-header-close {
+  margin-left: auto;
+  font-size: 32px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  filter: invert(0.5);
+}
+.new-folder-header-close:hover {
+  /* background-color: rgb(230, 230, 230); */
+  filter: invert(0);
+}
+.new-folder-name {
+  width: 362px;
+  margin-bottom: 24px;
+  margin-left: 24px;
+  margin-right: 24px;
+  font-size: 16px;
+  padding: 8px;
+}
+.new-folder-btns {
+  /* margin-bottom: 18px; */
+  margin-left: 24px;
+  margin-right: 24px;
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 12px;
+}
+
+.new-folder-cancel {
+  order: 2;
+  background-color: transparent;
+}
+.new-folder-submit {
+  order: 1;
+  color: white;
+  background-color: #4285f4;
+}
+.new-folder-submit:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.new-folder-cancel:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.new-folder-btns button,
+.new-folder-btns div {
+  padding: 12px;
+  margin-left: 16px;
+  width: 100px;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+}
+
+.right-click-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.right-click-options {
+  position: absolute;
+  /* bottom: 4vh; */
+  /* bottom: 9vh; */
+  /* right: 3vh; */
+  background-color: white;
+  width: 180px;
+  border-radius: 4px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border-top: 1px solid rgba(121, 121, 121, 0.4);
+  border-bottom: 1px solid rgba(121, 121, 121, 0.4);
+  /* padding: 0 20px; */
+}
+
+.right-click-add-options {
+  color: black;
+  /* display: block; */
+  /* text-align: center; */
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 8px 32px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+.right-click-add-options img {
+  margin-right: 12px;
+  /* height: 24px; */
+}
+.right-click-add-options:hover {
+  background-color: rgb(236, 235, 235);
+}
+
+/* update / rename folder modal */
+
+.update-directory-folder-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #000000;
+}
+.update-directory-folder {
+  width: 409px;
+  /* height: 120px; */
+  background-color: white;
+  border-radius: 8px;
+  padding: 22px 0 24px 0;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

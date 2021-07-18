@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Console</title>
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/menu.css" />
+    <link rel="stylesheet" href="./css/admin.css" />
+    <link rel="shortcut icon" href="./icons/favicon.svg" type="image/x-icon" />
+</head>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <div class="main-content">
+        <div class="menu">
+          <ul class="menu-options">
+            <li class="current-tab"><a href="/admin" class="files-link">Users</a></li>
+            <div class="triangle"></div>
+            
+            <li><a href="#" class="notices-link">Files</a></li>
+            <li><a href="#" class="teams-link">Teams</a></li>
+          </ul>
+          <div class="footer-menu-options">
+            <!-- <a href="/settings" class="settings-menu-link">
+              <img src="./icons/settings-24.svg" alt="" class="settings-icon" />
+              Settings
+            </a> -->
+            Admin
+          </div>
+        </div>
+        <div class="users-area">
+          <% users.forEach((user) => { %>
+            <div class="user">
+              <div class="user__avatar"><img src="../icons/person-24px.svg" alt=""></div>
+              <div class="vert-line"></div>
+              <div class="user__name"><%= user.fullname %></div>
+              <div class="user__email"><%= user.email %> </div>
+              <div class="user__roles">
+                <% user.role.forEach((role) => { %>
+                  <span class="user-role"><%= role %> </span>
+                <% }) %> 
+              </div>
+              <div class="user__buttons">
+                <button class="user-edit">Edit</button>
+                <button class="user-del"><a href="#">Delete</a></button>
+              </div>
+            </div>
+          <% }) %> 
+          
+        </div>
+        <div class="preview-pane">
+          <div class="preview-header">DB Console
+          </div>
+          <div class="preview-info">
+            <div class="preview-info__header">Information</div>
+            <div class="preview-info__content">
+            <div class="preview-info__user">
+               Users: <span class="bold"> <%= noOfUsers %> </span>
+            </div>
+            <div class="preview-info__teams">
+               Teams: <span class="bold"> <%= noOfTeams %> </span>
+            </div>
+            <div class="preview-info__folders">
+               Folders: <span class="bold">   
+                <% if(noOfFolders == 0) {%> 
+                  <%= noOfFolders %> 
+                <% } else { %>
+                <%= noOfFolders - 1 %> 
+                <% } %> 
+                </span>
+            </div>
+            <div class="preview-info__files">
+               Files: <span class="bold"> <%= noOfFiles %> </span>
+            </div>
+            <div class="preview-info__size">
+               Total Size: <span class="bold"> <%= sizeTotal %> </span>
+            </div>
+          </div>
+          </div>
+          <div class="lock-db">
+            <button><a href="#">Lock DB</a></button>
+          </div>
+          <div class="database">
+            <% if(noOfFolders == 0) { %>
+              <button class="createBtn"> <a href="/admin/createDB">Create DB</a></button>
+            <% } else { %>  
+              <button class="delBtn"> <a href="/admin/delDB">Delete DB</a></button>
+            <% } %> 
+
+          </div>
+        </div>
+      </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+.main-content {
+  height: 92vh;
+  background: rgb(253, 253, 253);
+  background: linear-gradient(
+    180deg,
+    rgba(253, 253, 253, 1) 0%,
+    rgba(209, 204, 204, 1) 100%
+  );
+  display: flex;
+}
+
+/*-------------MENU------------------------*/
+
+.triangle {
+  /* top: 34.25vh; */
+  top: 29.25vh;
+}

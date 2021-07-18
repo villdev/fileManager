@@ -1,0 +1,259 @@
+<div class="team-modal">
+  <div class="edit-team" data-teamid="<%=team._id%> ">
+    <div class="edit-team-header">
+      <div class="edit-team-title">Edit <%=team.teamname%> Members</div>
+      <div class="edit-team-close team-modal-close">&times;</div>
+    </div>
+    <div class="edit-team-search">
+      <input
+        class="edit-team-search-input"
+        type="search"
+        name="userName"
+        id=""
+        placeholder="Search..."
+      />
+      <button class="edit-team-search-btn">
+        <img src="../icons/search-24.svg" alt="" />
+      </button>
+    </div>
+    <div class="edit-team-members">
+      <% let removeUsers = []; %> <% let addUsers = []; %> <% let adminUser =
+      []; %> <% let managerUser = []; %> <% users.forEach(user => { %> <%
+      if(user.role.indexOf("admin") !== -1) { %> <% adminManager.push(user); %>
+      <% } %> <% else if(user._id == team.manager) { %> <%
+      managerUser.push(user); %> <% } %> <% else
+      if(user.role.indexOf(team.teamname) !== -1) { %> <%
+      removeUsers.push(user); %> <% } %> <% else { %> <% addUsers.push(user); %>
+      <% } %> <% }); %>
+      <div class="edit-team-member-remove">
+        <% if(adminUser.length !== 0) { %>
+        <div class="edit-team-user" data-userid="<%=adminUser[0]._id%>">
+          <img
+            src="../icons/person-24px.svg"
+            alt=""
+            class="edit-team-user-icon"
+          />
+          <div class="edit-team-user-name">
+            <%=adminUser[0].fullname%>
+            <div class="admin-manager-team">admin</div>
+          </div>
+        </div>
+        <% } %> <% if(managerUser.length !== 0) { %>
+        <div class="edit-team-user" data-userid="<%=managerUser[0]._id%>">
+          <img
+            src="../icons/person-24px.svg"
+            alt=""
+            class="edit-team-user-icon"
+          />
+          <div class="edit-team-user-name">
+            <%=managerUser[0].fullname%>
+            <div class="admin-manager-team">manager</div>
+          </div>
+        </div>
+        <% } %> <% removeUsers.forEach(user => { %>
+        <div class="edit-team-user" data-userid="<%=user._id%> ">
+          <img
+            src="../icons/person-24px.svg"
+            alt=""
+            class="edit-team-user-icon"
+          />
+          <div class="edit-team-user-name"><%=user.fullname%></div>
+          <button class="edit-team-manager-btn">Manager</button>
+          <button class="edit-team-member-remove-btn">Remove</button>
+        </div>
+        <% }); %>
+      </div>
+      <div class="edit-team-member-add">
+        <% addUsers.forEach(user => { %>
+        <div class="edit-team-user" data-userid="<%=user._id%> ">
+          <img
+            src="../icons/person-24px.svg"
+            alt=""
+            class="edit-team-user-icon"
+          />
+          <div class="edit-team-user-name"><%=user.fullname%></div>
+          <button class="edit-team-member-add-btn">Add</button>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+</div>
+
+// start from here 
+              <div class="edit-team-members">
+                <div class="edit-team-member-remove">
+                  <div class="edit-team-user" data-userid="id">
+                    <img
+                      src="../icons/person-24px.svg"
+                      alt=""
+                      class="edit-team-user-icon"
+                    />
+                    <div class="edit-team-user-name">
+                      Shobhit Kuruvilla
+                      <div class="admin-manager-team">Admin</div>
+                    </div>
+                  </div>
+                  <div class="edit-team-user" data-userid="id">
+                    <img
+                      src="../icons/person-24px.svg"
+                      alt=""
+                      class="edit-team-user-icon"
+                    />
+                    <div class="edit-team-user-name">
+                      Sharat Kuruvilla
+                      <div class="admin-manager-team">Manager</div>
+                    </div>
+                  </div>
+                  <div class="edit-team-user" data-userid="id">
+                    <img
+                      src="../icons/person-24px.svg"
+                      alt=""
+                      class="edit-team-user-icon"
+                    />
+                    <div class="edit-team-user-name">
+                      S Chatterjee
+                      <div class="admin-manager-team">Member</div>
+                    </div>
+                    <button class="edit-team-manager-btn">Manager</button>
+                    <button class="edit-team-member-remove-btn">Remove</button>
+                  </div>
+                </div>
+                <div class="edit-team-member-add">
+                  <div class="edit-team-user" data-userid="id">
+                    <img
+                      src="../icons/person-24px.svg"
+                      alt=""
+                      class="edit-team-user-icon"
+                    />
+                    <div class="edit-team-user-name">Abhay Sharma</div>
+                    <button class="edit-team-member-add-btn">Add</button>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+              <div class="edit-team-members">
+                <div class="edit-team-member-remove">
+                  <div
+                    class="edit-team-user"
+                    data-userid="<%= members[i].admin[0]._id %> "
+                  >
+                    <img
+                      src="../icons/person-24px.svg"
+                      alt=""
+                      class="edit-team-user-icon"
+                    />
+                    <div class="edit-team-user-name">
+                      <% members[i].admin[0]._id %>
+                      <div class="admin-manager-team">Admin</div>
+                    </div>
+                  </div>
+                  <% if( members[i].mg.length === 1) %> {
+                  <div
+                    class="edit-team-user"
+                    data-userid="<%= members[i].mg[0]._id %> "
+                  >
+                    <img
+                      src="../icons/person-24px.svg"
+                      alt=""
+                      class="edit-team-user-icon"
+                    />
+                    <div class="edit-team-user-name">
+                      <%= members[i].mg[0].fullname %>
+                      <div class="admin-manager-team">Manager</div>
+                    </div>
+                  </div>
+                  } <% members[i].rem.forEach(member => { %>
+                  <div class="edit-team-user" data-userid="<%= member._id %> ">
+                    <img
+                      src="../icons/person-24px.svg"
+                      alt=""
+                      class="edit-team-user-icon"
+                    />
+                    <div class="edit-team-user-name">
+                      <%= member.fullname %>
+                      <div class="admin-manager-team">Member</div>
+                    </div>
+                    <button class="edit-team-manager-btn">Manager</button>
+                    <button class="edit-team-member-remove-btn">Remove</button>
+                  </div>
+                  <% }) %>
+                </div>
+                <div class="edit-team-member-add">
+                  <% members[i].add.forEach(member => { %>
+                  <div class="edit-team-user" data-userid="<%= member._id %> ">
+                    <img
+                      src="../icons/person-24px.svg"
+                      alt=""
+                      class="edit-team-user-icon"
+                    />
+                    <div class="edit-team-user-name">
+                      <%= member.fullname %>
+                    </div>
+                    <button class="edit-team-member-add-btn">Add</button>
+                  </div>
+                  <% }) %>
+                </div>
+                <% }) %>
+                <!-- <div class="edit-team-member-remove"> -->
+                <!-- <div class="edit-team-user" data-userid="id">
+                    <img
+                      src="../icons/person-24px.svg"
+                      alt=""
+                      class="edit-team-user-icon"
+                    />
+                    <div class="edit-team-user-name">
+                      Shobhit Kuruvilla
+                      <div class="admin-manager-team">Admin</div>
+                    </div>
+                  </div> -->
+                <!-- end admin -->
+
+                <!-- <div class="edit-team-user" data-userid="id">
+                    <img
+                      src="../icons/person-24px.svg"
+                      alt=""
+                      class="edit-team-user-icon"
+                    />
+                    <div class="edit-team-user-name">
+                      Sharat Kuruvilla
+                      <div class="admin-manager-team">Manager</div>
+                    </div>
+                  </div> -->
+                <!-- end manager -->
+
+                <!-- <div class="edit-team-user" data-userid="id">
+                    <img
+                      src="../icons/person-24px.svg"
+                      alt=""
+                      class="edit-team-user-icon"
+                    />
+                    <div class="edit-team-user-name">
+                      S Chatterjee
+                      <div class="admin-manager-team">Member</div>
+                    </div>
+                    <button class="edit-team-manager-btn">Manager</button>
+                    <button class="edit-team-member-remove-btn">Remove</button>
+                  </div> -->
+                <!-- end member -->
+
+                <!-- </div> -->
+                <!-- <div class="edit-team-member-add"> -->
+                <!-- <div class="edit-team-user" data-userid="id">
+                    <img
+                      src="../icons/person-24px.svg"
+                      alt=""
+                      class="edit-team-user-icon"
+                    />
+                    <div class="edit-team-user-name">Abhay Sharma</div>
+                    <button class="edit-team-member-add-btn">Add</button>
+                  </div> -->
+                <!-- end other user -->
+                <!-- </div> -->
+              </div>0
+
+

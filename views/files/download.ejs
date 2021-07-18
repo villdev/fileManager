@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Files</title>
+  </head>
+  <body>
+    <h2>Users</h2>
+    <br />
+    <% users.forEach(user => { %>
+    <br />
+    <div>
+      Name: <%=user.fullname%> | Created On: <%=user.createdAt%>
+      <br />
+      Copied UUID: <%=user.copiedUUID%> | Copy Cut Flag: <%=user.copyCutFlag%>
+      <br />
+      Role: <%= user.role%>
+      <br />
+      <br />
+      <a href="/delete/<%=user._id%>">Delete User</a>
+      <br />
+      <form action="/download/user/role/add/<%=user._id%>" method="post">
+        <input type="text" name="role" />
+        <button type="submit">Update Role</button>
+      </form>
+      <a href="/download/user/role/remove/<%=user._id%>">Remove Last Role</a>
+    </div>
+    <% }) %>
+    <br />
+    <br />
+
+    <h2>Files</h2>
+    <br />
+    <% files.forEach(file => { %>
+    <br />
+    <div>
+      <%=file.filename%> <%=file.path%>
+      <a href="/download/<%=file.uuid%>">Download</a>
+      <a href="/download/delete/<%=file.uuid%>">Delete</a>
+    </div>
+    <% }) %>
+    <br />
+    <h2>Folders</h2>
+    <br />
+    <a href="delete/testingFolders">Delete testing folders</a>
+    <br />
+    <% folders.forEach(folder => { %>
+    <br />
+    <div>
+      <%=folder.foldername%>
+      <a href="download/deleteFolder/<%=folder.uuid%> ">
+        Delete Folder (dont use)</a
+      >
+    </div>
+    <% }) %>
+    <br />
+    <br />
+    <h2>Teams</h2>
+    <br />
+    <form action="/download/team/create" method="POST">
+      <input type="text" name="name" />
+      <button type="submit">Create Team</button>
+    </form>
+    <br />
+    <% teams.forEach(team => { %>
+    <br />
+    <div>
+      <h3><%=team.teamname%></h3>
+      <form action="/download/team/update/<%=team._id%>" method="POST">
+        <input type="text" name="name" />
+        <button type="submit">Update Team Name</button>
+      </form>
+      <a href="/download/team/delete/<%=team._id%>">Delete Team</a>
+      <br />
+      <h6>Remove</h6>
+      <div>
+        <% users.forEach(user => { %> <% if(user.role.indexOf(team.teamname) !==
+        -1 ) { %> <%= user.fullname %> : <% if(user._id != team.manager) {%>
+        <a href="/download/team/manager/<%=team._id%>/<%=user._id%>"
+          >Change To Manager</a
+        >
+        <% } %>
+        <a href="/download/team/remove/<%=team._id%>/<%=user._id%>"
+          >Remove from team</a
+        >
+        <% } %> <% }) %>
+      </div>
+      <h6>Add</h6>
+      <div>
+        <% users.forEach(user => { %> <% if( !user.role || user.role==="" ||
+        user.role.indexOf(team.teamname) === -1) { %> <%= user.fullname %> :
+        <a href="/download/team/add/<%=team._id%>/<%=user._id%>">Add to team</a>
+        <% } %> <% }) %>
+      </div>
+    </div>
+    <% }) %>
+  </body>
+</html>

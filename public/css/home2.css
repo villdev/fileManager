@@ -1,0 +1,108 @@
+/*-------------------------------main-content----------------------------*/
+
+.main-content {
+  height: 92vh;
+  padding: 32px 48px;
+  background-color: #e6e3e3;
+}
+
+.main-content__title {
+  font-size: 24px;
+  font-weight: 700;
+  height: 64px;
+}
+.home-icon {
+  width: 40px;
+  height: 40px;
+}
+.home-title {
+  position: relative;
+  bottom: 8px;
+}
+
+/*-----------------*/
+.main-content__nav {
+  /* padding: 24px 8px; */
+  padding: 32px;
+}
+
+.main-content__nav img {
+  display: block;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto;
+}
+
+/* .notices-link img,
+  .recent-link img {
+    width: 112px;
+    height: 112px;
+  } */
+
+.main-content__nav a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 160px;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 24px;
+  /* 1 */
+  /* border-radius: 50px;
+  background: #e6e3e3;
+  box-shadow: 16px 16px 32px #c4c1c1, -16px -16px 32px #ffffff; */
+  /* 2 */
+  border-radius: 50px;
+  background: linear-gradient(145deg, #f6f3f3, #cfcccc);
+  box-shadow: 16px 16px 32px #c4c1c1, -16px -16px 32px #ffffff;
+  /* 3 */
+  /* border-radius: 50px;
+  background: #e6e3e3;
+  box-shadow: 16px 16px 32px #c4c1c1, -16px -16px 32px #ffffff; */
+}
+
+.main-content__nav a:hover {
+  /* color: #db0d23; */
+  /* 1 */
+  /* border-radius: 50px;
+  background: linear-gradient(145deg, #cfcccc, #f6f3f3);
+  box-shadow: 16px 16px 32px #c4c1c1, -16px -16px 32px #ffffff; */
+  /* 2 */
+  border-radius: 50px;
+  background: linear-gradient(145deg, #cfcccc, #f6f3f3);
+  box-shadow: 16px 16px 32px #c4c1c1, -16px -16px 32px #ffffff;
+  /* 3 */
+  /* border-radius: 50px;
+  background: #e6e3e3;
+  box-shadow: inset 16px 16px 32px #c4c1c1, inset -16px -16px 32px #ffffff; */
+}
+
+#link-hover-icon {
+  display: none;
+}
+
+[class*="-link"]:hover .link-icon {
+  /* filter: invert(10%) sepia(100%) saturate(7009%) hue-rotate(351deg)
+    brightness(89%) contrast(92%); */
+  display: none;
+}
+
+[class*="-link"]:hover #link-hover-icon {
+  /* filter: invert(10%) sepia(100%) saturate(7009%) hue-rotate(351deg)
+    brightness(89%) contrast(92%); */
+  display: block;
+}
+
+.main-content__nav a:hover {
+}
+
+.main-content__nav nav {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

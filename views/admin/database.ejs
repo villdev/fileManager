@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Console</title>
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/menu.css" />
+    <link rel="stylesheet" href="./css/settings.css" />
+    <link rel="shortcut icon" href="./icons/favicon.svg" type="image/x-icon" />
+</head>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <div class="main-content">
+        <div class="menu">
+          <ul class="menu-options">
+            <li><a href="/admin/database" class="home-link">Database</a></li>
+            <li><a href="/admin/users" class="files-link">Users</a></li>
+            <li><a href="/admin/files" class="notices-link">Files</a></li>
+            <li><a href="/admin/teams" class="teams-link">Teams</a></li>
+          </ul>
+          <div class="footer-menu-options">
+            <!-- <a href="/settings" class="settings-menu-link">
+              <img src="./icons/settings-24.svg" alt="" class="settings-icon" />
+              Settings
+            </a> -->
+            Admin Console
+          </div>
+        </div>
+        <div class="settings-area">
+          <div class="settings-list">
+            <div class="account-settings">
+              <a href="#" class="settings-link">
+                <div class="setting-icon-wrapper">
+                  <img
+                    src="./icons/person-24px.svg"
+                    alt=""
+                    class="setting-icon"
+                  />
+                </div>
+  
+                <div class="setting-title">Account Settings</div>
+              </a>
+            </div>
+            <div class="notif-settings">
+              <a href="#" class="settings-link">
+                <div class="setting-icon-wrapper">
+                  <img
+                    src="./icons/notifications-black-24.svg"
+                    alt=""
+                    class="setting-icon"
+                  />
+                </div>
+  
+                <div class="setting-title">Notification Settings</div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="empty-preview-pane"></div>
+      </div>
+</body>
+</html>

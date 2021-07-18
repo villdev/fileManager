@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notices</title>
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/menu.css" />
+    <link rel="stylesheet" href=".//css/filedir.css" />
+    <link rel="stylesheet" href="./css/preview.css" />
+    <link rel="stylesheet" href="./css/plusbtn.css" />
+    <link rel="stylesheet" href="./css/notices.css" />
+    <link rel="shortcut icon" href="./icons/favicon.svg" type="image/x-icon" />
+  </head>
+  <body>
+    <%- include("../partials/header.ejs") %>
+    <div class="main-content">
+      <div class="menu">
+        <ul class="menu-options">
+          <li><a href="/home" class="home-link">Home</a></li>
+          <li><a href="/files" class="files-link">Files</a></li>
+          <li class="current-tab">
+            <a href="/notices" class="notices-link">Notices</a>
+          </li>
+          <div class="triangle"></div>
+          <li><a href="/teams" class="teams-link">Teams</a></li>
+          <li><a href="/recent" class="recent-link">Recent Items</a></li>
+          <li><a href="/starred" class="starred-link">Starred Items</a></li>
+        </ul>
+        <div class="footer-menu-options">
+          <a href="/settings" class="settings-link">
+            <img src="./icons/settings-24.svg" alt="" class="settings-icon" />
+            Settings
+          </a>
+        </div>
+      </div>
+      <div class="files-area">
+        <%- include("../partials/pathTemp.ejs") %> <%-
+        include("../partials/directory-viewTemp.ejs") %>
+        <div class="file-directory">
+          <div class="file">
+            <img src="./icons/file.svg" alt="" class="file-icon" />
+            <div class="file-name">Company policy.pdf</div>
+            <img src="./icons/more_vert.svg" alt="" class="more-icon" />
+          </div>
+        </div>
+      </div>
+      <%- include("../partials/preview.ejs") %> <%-
+      include("../partials/plusbtn.ejs") %>
+    </div>
+  </body>
+</html>

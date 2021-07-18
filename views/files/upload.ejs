@@ -1,0 +1,14 @@
+<form action="/upload/file" method="post" enctype="multipart/form-data">
+  <input type="file" name="singleFile" />
+  <button type="submit">Submit Single File</button>
+</form>
+<br />
+<form action="/upload/files" method="post" enctype="multipart/form-data">
+  <input type="file" name="multFile" multiple />
+  <button type="submit">Submit Multiple Files</button>
+</form>
+<br />
+<form action="/upload/folder" method="post" enctype="multipart/form-data">
+  <input type="file" name="multFile" webkitdirectory directory multiple />
+  <button type="submit">Submit Folder</button>
+</form>

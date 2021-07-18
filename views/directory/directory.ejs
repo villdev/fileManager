@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Directory</title>
+  </head>
+  <body>
+    <h2>Directory</h2>
+    <h3>Folder: <%=fname%></h3>
+    <h3>Team: <%=fteam%></h3>
+    <div><%=path%></div>
+    <br />
+    <a href="/directory/<%=parentFolder%>"> Go Back</a>
+    <br />
+    <a href="/directory/search/files">Search</a>
+    <br />
+    <a href="/directory/sort/name/<%=currentFolder%>"> Sort By Name</a>
+    <a href="/directory/sort/size/<%=currentFolder%>"> Sort By Size</a>
+    <a href="/directory/sort/type/<%=currentFolder%>"> Sort By Type</a>
+    <a href="/directory/sort/date/<%=currentFolder%>"> Sort By Date Modified</a>
+    <br />
+    <% folders.forEach(folder => { %>
+    <br />
+    <div>
+      <%=folder.foldername%>
+      <a href="/directory/<%=folder.uuid %>">Open Folder</a>
+      <form action="/directory/update/<%=folder.uuid %>" method="post">
+        <input type="text" name="foldername" />
+        <button type="submit">Update Folder Name</button>
+      </form>
+      <a href="/directory/copy/<%=folder.uuid%>">Copy Folder</a>
+      <a href="/directory/cut/<%=folder.uuid%>">Cut Folder</a>
+      <a href="/directory/delete/<%=folder.uuid%>">Delete Folder</a>
+    </div>
+    <% }) %>
+    <br />
+    <br />
+    <% files.forEach( file => { %>
+    <br />
+    <div>
+      <%=file.filename%>
+      <a href="/directory/downloadFile/<%=file.uuid%>">Download File</a>
+      <a href="/directory/copyFile/<%=file.uuid%>">Copy File</a>
+      <a href="/directory/cutFile/<%=file.uuid%>">Cut File</a>
+      <a href="/directory/deleteFile/<%=file.uuid%>">Delete File</a>
+    </div>
+    <% }) %>
+    <br />
+    <br />
+    <a href="/directory/paste/<%=currentFolder%>">Paste</a>
+    <form action="/directory/<%=currentFolder%>/newFolder" method="post">
+      <input type="text" name="foldername" id="" />
+      <button type="submit">Create New Folder</button>
+    </form>
+    <br />
+    <form
+      action="/directory/<%=currentFolder%>/newFile"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <input type="file" name="singleFile" />
+      <button type="submit">Submit Single File</button>
+    </form>
+    <br />
+    <form
+      action="/directory/<%=currentFolder%>/newFiles"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <input type="file" name="multFile" multiple />
+      <button type="submit">Submit Multiple Files</button>
+    </form>
+    <br />
+  </body>
+</html>
